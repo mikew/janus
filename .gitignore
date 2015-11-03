@@ -9,3 +9,4 @@ _temp
 # Plugins without git-mirror
 watchtower.vim
 mustache.vim
+janus/vim/plugged/
