@@ -34,6 +34,12 @@ endif
 exe 'source ' . g:janus_vim_path . '/core/plugins.vim'
 
 ""
+"" vim-plug setup
+""
+
+call janus#load_vim_plug()
+
+""
 "" Pathogen setup
 ""
 
