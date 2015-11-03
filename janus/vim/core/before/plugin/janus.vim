@@ -81,6 +81,7 @@ function! janus#vim_files(folder)
   return files
 endfunction
 
+let g:janus_loaded_groups = []
 " Add a group of plug-ins to Pathogen
 "
 " @param [String] The plugin name
@@ -275,6 +276,7 @@ endfunction
 " @param [String] The plugin name
 " @return [Boolean]
 function! janus#is_module_loaded(name)
+  return 1
   return len(janus#vim_files(janus#plugin_path(a:name))) > 0
 endfunction
 
