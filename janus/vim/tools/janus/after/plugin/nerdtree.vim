@@ -27,6 +27,10 @@ if janus#is_plugin_enabled("nerdtree")
 
     if directory
       NERDTree
+      try
+        NERDTreeTabsOpen
+      endtry
+
       wincmd p
       bd
     endif
