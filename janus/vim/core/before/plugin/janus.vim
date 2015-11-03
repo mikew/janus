@@ -150,6 +150,33 @@ function! janus#load_pathogen()
   call pathogen#helptags()
 endfunction
 
+function! janus#load_vim_plug()
+  exe 'source ' . g:janus_vim_path . '/core/plug.vim'
+
+  call plug#begin(g:janus_vim_path . '/plugged')
+
+  exe 'source ' . g:janus_vim_path . '/tools.vim'
+  exe 'source ' . g:janus_vim_path . '/langs.vim'
+  "exe 'source ' . g:janus_vim_path . '/colors.vim'
+
+  " Load the user's plugins
+  if filereadable(expand("~/.vimrc.plugins"))
+    source ~/.vimrc.plugins
+  endif
+
+  call plug#end()
+
+  " Calling two things like this in a row seems to fail, so fix the rtp
+  " manually
+  "
+  " Plug g:janus_vim_path . '/core/before'
+  " Plug g:janus_vim_path . '/tools/before'
+  exe 'set rtp^=' . g:janus_vim_path . '/core/before'
+  exe 'set rtp^=' . g:janus_vim_path . '/tools/before'
+  exe 'set rtp+=' . g:janus_vim_path . '/core/janus/after'
+  exe 'set rtp+=' . g:janus_vim_path . '/tools/janus/after'
+endfunction
+
 " Which group contains a plugin ?
 "
 " @param [String] The plugin name
