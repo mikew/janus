@@ -11,10 +11,10 @@ if has("autocmd")
   " This actually might be confusing, but the plugin +ruby+ already does
   " this, so we want to do it only if the plugin +ruby+ is disabled for
   " some reason
-  if janus#is_plugin_disabled("ruby")
-    " Set the Ruby filetype for a number of common Ruby files without .rb
-    au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,Procfile,Guardfile,config.ru,*.rake} set ft=ruby
-  endif
+  "if janus#is_plugin_disabled("ruby")
+    "" Set the Ruby filetype for a number of common Ruby files without .rb
+    "au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,Procfile,Guardfile,config.ru,*.rake} set ft=ruby
+  "endif
 
   " Make sure all mardown files have the correct filetype set and setup wrapping
   au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown

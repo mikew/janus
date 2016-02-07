@@ -10,3 +10,5 @@ _temp
 watchtower.vim
 mustache.vim
 janus/vim/plugged/
+vim/plugged/
+*.old
