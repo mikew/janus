@@ -2,7 +2,7 @@
 
 cd ~/.vim/
 git fetch --all
-git pull origin master
+git pull origin $(git symbolic-ref --short -q HEAD)
 
 vim="vim"
 if which mvim; then
