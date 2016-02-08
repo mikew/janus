@@ -11,24 +11,15 @@ and `~/.vimrc.after` Vim RC files.
 
 ## Updating to the latest version
 
-To update to the latest version of the distribution, just run `rake`
-inside your `~/.vim` directory.
-
-NOTE: If you ever have an error updating Janus relating to a
-missing commit in a submodule, please try running `rake` again before
-submitting an issue.
-
-## Mailing list
-
-The mailing list is hosted at [Google
-Groups](http://groups.google.com/group/janus-vimius), please join it for
-discussion and announcements.
+```bash
+~/.vim/update.sh
+```
 
 ## Pre-requisites
 
 The distribution is designed to work with Vim >= 7.3.
 
-The distribution also requires `ack`, `ctags`, `git`, `ruby` and `rake`.
+The distribution also requires `ack`, `ctags`, and `git`.
 For the most comfortable experience, use the GUI version of Vim. Linux
 users should install `gvim`, OSX users should install
 [MacVim](http://code.google.com/p/macvim/). The recommended way of
@@ -46,20 +37,16 @@ $ brew install macvim
 If you don't use Homebrew, you can still download MacVim
 [here](https://github.com/b4winckler/macvim/releases).
 
-Take a look at the [Pre-requisites wiki
-page](https://github.com/carlhuda/janus/wiki/Pre-requisites) for more
-information.
-
 
 ## Installation
 
 To install Janus, please use our [automatic
-installer](https://github.com/carlhuda/janus/blob/master/bootstrap.sh)
+installer](https://github.com/mikew/janus/blob/master/bootstrap.sh)
 , which backs up any Vim files found in your home folder and installs
 Janus.
 
 ```bash
-$ curl -L https://bit.ly/janus-bootstrap | bash
+$ curl -L https://raw.githubusercontent.com/mikew/janus/vim-plug/bootstrap.sh | bash
 ```
 
 ## Customization
@@ -78,30 +65,11 @@ $ echo 'color molokai' >> ~/.gvimrc.after
 ```
 
 If you want to do additional customization or add more Vim plugins,
-create a `~/.janus` directory and add your plugins there, either with a
-`git clone` or by adding submodules to your own git repository there.
-This directory is treated like a normal pathogen directory. For example:
+create a `~/.vimrc.plugins` file and add your plugins there. For example:
 
-```bash
-$ cd ~/.janus
-$ git clone https://github.com/vim-scripts/Rename2.git rename2
-```
-
-Or, if you have a git repository in `~/.janus`, you can use a submodule:
-
-```bash
-$ cd ~/.janus
-$ git submodule add https://github.com/vim-scripts/Rename2.git rename2
-```
-
-If you would like to disable an included plug-in, you can do that with
-the `janus#disable_plugin()` function from inside your
-`~/.vimrc.before`. This function takes a plug-in name as an argument
-without the group. For example, if you would like to disable the
-NERDCommenter plug-in, you can do that with the command:
-
-```bash
-$ echo "call janus#disable_plugin('nerdcommenter')" >> ~/.vimrc.before
+```vim
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 ```
 
 **WARNING**: We've noticed over and over, that people fork Janus just to
@@ -119,10 +87,8 @@ the current setup, then please open an issue or consider submitting a
 pull request to make it possible to continue using/improving the official repo.
 
 **WARNING**: Any **uncommited** files inside the **janus** folder will be
-removed the next time you run `rake` so make sure to either put them in
-the custom folder (`~/.janus`), or commit them. We clean the janus
-folder in case we replace a manually installed plugin (using rake tasks)
-with a submodule.
+removed when updated so make sure to either put them in
+the custom files (`~/.vimrc.before`, etc.), or commit them.
 
 For more information on how to customize Janus, you might want to take
 a look at the [Customization wiki
