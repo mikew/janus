@@ -10,18 +10,17 @@ else
   let g:janus_path = escape(fnamemodify(resolve(expand("<sfile>:p")), ":h"), ' ')
   let g:janus_vim_path = escape(fnamemodify(resolve(expand("<sfile>:p" . "vim")), ":h"), ' ')
 endif
-let g:janus_custom_path = expand("~/.janus")
 
-" Source janus's core
-"exe 'source ' . g:janus_vim_path . '/janus.vim'
+""
+"" Load base settings
+""
+
 exe 'source ' . g:janus_vim_path . '/mappings.vim'
 exe 'source ' . g:janus_vim_path . '/settings.vim'
 
-" You should note that groups will be processed by Pathogen in reverse
-" order they were added.
-"call janus#add_group("tools")
-"call janus#add_group("langs")
-"call janus#add_group("colors")
+for rcfile in split(globpath(g:janus_vim_path . '/before', '*.vim'), '\n')
+  execute('source '.rcfile)
+endfor
 
 ""
 "" Customisations
@@ -35,42 +34,21 @@ if has("gui_running") && filereadable(expand("~/.gvimrc.before"))
   source ~/.gvimrc.before
 endif
 
-
-" Disable plugins prior to loading pathogen
-"exe 'source ' . g:janus_vim_path . '/preflight.vim'
-
 ""
 "" vim-plug setup
 ""
 
 exe 'source ' . g:janus_vim_path . '/plug.vim'
-
 call plug#begin(g:janus_vim_path . '/plugged')
+  exe 'source ' . g:janus_vim_path . '/tools.vim'
+  exe 'source ' . g:janus_vim_path . '/langs.vim'
 
-exe 'source ' . g:janus_vim_path . '/tools.vim'
-exe 'source ' . g:janus_vim_path . '/langs.vim'
-"exe 'source ' . g:janus_vim_path . '/colors.vim'
+  " Load the user's plugins
+  if filereadable(expand("~/.vimrc.plugins"))
+    source ~/.vimrc.plugins
+  endif
 
-" Load the user's plugins
-if filereadable(expand("~/.vimrc.plugins"))
-  source ~/.vimrc.plugins
-endif
-
+  Plug g:janus_vim_path . '/after', { 'as': 'janus-after' }
 call plug#end()
-
-" Calling two things like this in a row seems to fail, so fix the rtp
-" manually
-"
-" Plug g:janus_vim_path . '/core/before'
-" Plug g:janus_vim_path . '/tools/before'
-exe 'set rtp^=' . g:janus_vim_path . '/before'
-exe 'set rtp+=' . g:janus_vim_path . '/after'
-
-""
-"" Pathogen setup
-""
-
-" Load all groups, custom dir, and janus core
-"call janus#load_pathogen()
 
 " .vimrc.after is loaded after the plugins have loaded

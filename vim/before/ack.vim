@@ -1,7 +1,7 @@
 if executable("ag")
-  let g:ackprg="ag --nocolor --nogroup --column"
+  let g:ackprg = "ag --vimgrep"
 elseif executable("ack-grep")
-  let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+  let g:ackprg = "ack-grep -H --nocolor --nogroup --column"
 endif
 
 if has("gui_macvim") && has("gui_running")

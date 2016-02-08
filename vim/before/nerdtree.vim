@@ -1,8 +1,13 @@
+let NERDTreeHijackNetrw = 0
 let NERDTreeIgnore=['\.pyc$', '\.pyo$', '\.rbc$', '\.rbo$', '\.class$', '\.o$', '\~$']
+let g:nerdtree_tabs_startup_cd = 0
+let g:nerdtree_tabs_smart_startup_focus = 0
+let g:nerdtree_tabs_open_on_gui_startup = 0
+let g:nerdtree_tabs_open_on_console_startup = 0
 
 " Default mapping, <leader>n
 if maparg("<leader>n") !~ 'NERDTree'
-  map <leader>n :NERDTreeToggle<CR> :NERDTreeMirror<CR>
+  map <leader>n :NERDTreeTabsToggle<CR>
 endif
 
 autocmd VimEnter * call s:NERDTreeTabsOpen(expand("<amatch>"))
@@ -10,7 +15,12 @@ autocmd FocusGained * call s:UpdateNERDTree()
 
 function s:NERDTreeTabsOpen(directory)
   let l:main_bufnr = bufnr('%')
-  if (isdirectory(a:directory)) || a:directory =~ "NERD_tree_[0-9]\\+"
+
+  if isdirectory(a:directory)
+    exe "cd " . fnameescape(a:directory)
+  endif
+
+  if isdirectory(a:directory) || a:directory =~ "NERD_tree_[0-9]\\+"
     bd
   endif
 
