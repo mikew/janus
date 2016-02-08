@@ -1,3 +1,5 @@
+call janus#commit_delayed_commands()
+
 " CtrlP OS-X Menu remapping
 if has("gui_macvim")
   macmenu &File.New\ Tab key=<D-S-t>

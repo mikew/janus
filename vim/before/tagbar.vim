@@ -1,2 +1,2 @@
 " Tagbar mappings.
-map <Leader>rt :TagbarToggle<CR>
+call janus#add_delayed_command('map <Leader>rt :TagbarToggle<CR>')

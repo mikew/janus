@@ -15,6 +15,7 @@ endif
 "" Load base settings
 ""
 
+exe 'source ' . g:janus_vim_path . '/janus.vim'
 exe 'source ' . g:janus_vim_path . '/mappings.vim'
 exe 'source ' . g:janus_vim_path . '/settings.vim'
 

@@ -6,6 +6,6 @@ let g:ctrlp_custom_ignore = {
   \ }
 
 if has("gui_macvim") && has("gui_running")
-  map <D-t> :CtrlP<CR>
-  imap <D-t> <ESC>:CtrlP<CR>
+  call janus#add_delayed_command('map <D-t> :CtrlP<CR>')
+  call janus#add_delayed_command('imap <D-t> <ESC>:CtrlP<CR>')
 endif

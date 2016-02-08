@@ -7,7 +7,7 @@ let g:nerdtree_tabs_open_on_console_startup = 0
 
 " Default mapping, <leader>n
 if maparg("<leader>n") !~ 'NERDTree'
-  map <leader>n :NERDTreeTabsToggle<CR>
+  call janus#add_delayed_command('map <leader>n :NERDTreeTabsToggle<CR>')
 endif
 
 autocmd VimEnter * call s:NERDTreeTabsOpen(expand("<amatch>"))

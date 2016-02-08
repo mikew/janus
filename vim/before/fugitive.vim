@@ -1,7 +1,7 @@
 " Janus mappings
-nmap <leader>gb :Gblame<CR>
-nmap <leader>gs :Gstatus<CR>
-nmap <leader>gd :Gdiff<CR>
-nmap <leader>gl :Glog<CR>
-nmap <leader>gc :Gcommit<CR>
-nmap <leader>gp :Git push<CR>
+call janus#add_delayed_command('nmap <leader>gb :Gblame<CR>')
+call janus#add_delayed_command('nmap <leader>gs :Gstatus<CR>')
+call janus#add_delayed_command('nmap <leader>gd :Gdiff<CR>')
+call janus#add_delayed_command('nmap <leader>gl :Glog<CR>')
+call janus#add_delayed_command('nmap <leader>gc :Gcommit<CR>')
+call janus#add_delayed_command('nmap <leader>gp :Git push<CR>')

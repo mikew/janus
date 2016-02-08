@@ -1,7 +1,7 @@
 " Normal Mode: Bubble single lines
-nmap <C-Up> [e
-nmap <C-Down> ]e
+call janus#add_delayed_command('nmap <C-Up> [e')
+call janus#add_delayed_command('nmap <C-Down> ]e')
 
 " Visual Mode: Bubble multiple lines
-vmap <C-Up> [egv
-vmap <C-Down> ]egv
+call janus#add_delayed_command('vmap <C-Up> [egv')
+call janus#add_delayed_command('vmap <C-Down> ]egv')
