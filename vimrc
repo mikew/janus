@@ -4,24 +4,12 @@
 
 " Define paths
 if has('win32') || has('win64') || has('win32unix')
-  let g:janus_path = expand("~/.vim/vim")
-  let g:janus_vim_path = expand("~/.vim/vim")
+  let g:janus_path = expand("~/.vim")
+  let g:janus_vim_path = expand("~/.vim")
 else
   let g:janus_path = escape(fnamemodify(resolve(expand("<sfile>:p")), ":h"), ' ')
   let g:janus_vim_path = escape(fnamemodify(resolve(expand("<sfile>:p" . "vim")), ":h"), ' ')
 endif
-
-""
-"" Load base settings
-""
-
-exe 'source ' . g:janus_vim_path . '/janus.vim'
-exe 'source ' . g:janus_vim_path . '/mappings.vim'
-exe 'source ' . g:janus_vim_path . '/settings.vim'
-
-for rcfile in split(globpath(g:janus_vim_path . '/before', '*.vim'), '\n')
-  execute('source '.rcfile)
-endfor
 
 ""
 "" Customisations
@@ -39,7 +27,6 @@ endif
 "" vim-plug setup
 ""
 
-exe 'source ' . g:janus_vim_path . '/plug.vim'
 call plug#begin(g:janus_vim_path . '/plugged')
   exe 'source ' . g:janus_vim_path . '/tools.vim'
   exe 'source ' . g:janus_vim_path . '/langs.vim'
@@ -49,7 +36,7 @@ call plug#begin(g:janus_vim_path . '/plugged')
     source ~/.vimrc.plugins
   endif
 
-  Plug g:janus_vim_path . '/after', { 'as': 'janus-after' }
+  "Plug g:janus_vim_path . '/after', { 'as': 'janus-after' }
 call plug#end()
 
 " .vimrc.after is loaded after the plugins have loaded

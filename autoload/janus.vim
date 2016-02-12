@@ -5,7 +5,6 @@ function! janus#add_delayed_command(cmd)
 endfunction
 
 function! janus#commit_delayed_commands()
-  echom 'janus#commit_delayed_commands'
   for cmd in s:delayed_commands
     execute cmd
   endfor

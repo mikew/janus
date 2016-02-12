@@ -45,6 +45,8 @@ call janus#add_delayed_command('nmap <silent> <leader>fc <ESC>/\v^[<=>]{7}( .*\|
 " Map the arrow keys to be based on display lines, not physical lines
 call janus#add_delayed_command('map <Down> gj')
 call janus#add_delayed_command('map <Up> gk')
+call janus#add_delayed_command('imap <Down> <Esc>gja')
+call janus#add_delayed_command('imap <Up> <Esc>gka')
 
 " Toggle hlsearch with <leader>hs
 call janus#add_delayed_command('nmap <leader>hs :set hlsearch! hlsearch?<CR>')
@@ -68,14 +70,14 @@ if has("gui_macvim") && has("gui_running")
   call janus#add_delayed_command('imap <D-[> <Esc><<i')
 
   " Bubble single lines
-  call janus#add_delayed_command('nmap <D-Up> [e')
+  "call janus#add_delayed_command('nmap <D-Up> [e')
   call janus#add_delayed_command('nmap <D-Down> ]e')
   call janus#add_delayed_command('nmap <D-k> [e')
   call janus#add_delayed_command('nmap <D-j> ]e')
 
   " Bubble multiple lines
-  call janus#add_delayed_command('vmap <D-Up> [egv')
-  call janus#add_delayed_command('vmap <D-Down> ]egv')
+  "call janus#add_delayed_command('vmap <D-Up> [egv')
+  "call janus#add_delayed_command('vmap <D-Down> ]egv')
   call janus#add_delayed_command('vmap <D-k> [egv')
   call janus#add_delayed_command('vmap <D-j> ]egv')
 
@@ -114,16 +116,16 @@ else
 
   call janus#add_delayed_command('imap <A-]> <Esc>>>i')
   call janus#add_delayed_command('imap <A-[> <Esc><<i')
- 
+
   " Bubble single lines
-  call janus#add_delayed_command('nmap <C-Up> [e')
-  call janus#add_delayed_command('nmap <C-Down> ]e')
+  "call janus#add_delayed_command('nmap <C-Up> [e')
+  "call janus#add_delayed_command('nmap <C-Down> ]e')
   call janus#add_delayed_command('nmap <C-k> [e')
   call janus#add_delayed_command('nmap <C-j> ]e')
 
   " Bubble multiple lines
-  call janus#add_delayed_command('vmap <C-Up> [egv')
-  call janus#add_delayed_command('vmap <C-Down> ]egv')
+  "call janus#add_delayed_command('vmap <C-Up> [egv')
+  "call janus#add_delayed_command('vmap <C-Down> ]egv')
   call janus#add_delayed_command('vmap <C-k> [egv')
   call janus#add_delayed_command('vmap <C-j> ]egv')
 

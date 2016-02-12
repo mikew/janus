@@ -7,9 +7,9 @@ if filereadable(expand("~/.vimrc.after"))
   source ~/.vimrc.after
 endif
 
-if has("gui_running") && filereadable(expand("~/.gvimrc.after"))
-  source ~/.gvimrc.after
-endif
+"if has("gui_running") && filereadable(expand("~/.gvimrc.after"))
+  "source ~/.gvimrc.after
+"endif
 
 if !has("gui_running")
   call janus#commit_delayed_commands()

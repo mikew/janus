@@ -12,3 +12,5 @@ mustache.vim
 janus/vim/plugged/
 vim/plugged/
 *.old
+plugged/
+tmp/

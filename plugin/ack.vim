@@ -1,3 +1,4 @@
+echom 'ack omg lol'
 if executable("ag")
   let g:ackprg = "ag --vimgrep"
 elseif executable("ack-grep")

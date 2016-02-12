@@ -75,12 +75,8 @@ set wildignore+=*.swp,*~,._*
 ""
 
 " where to put backup files.
-exe 'set backupdir^=' . g:janus_vim_path . '/_backup'
+exe 'set backupdir^=' . g:janus_vim_path . '/tmp'
 " where to put swap files.
-exe 'set directory^=' . g:janus_vim_path . '/_temp'
+exe 'set directory^=' . g:janus_vim_path . '/tmp'
 " where to put undo files.
-exe 'set undodir^=' . g:janus_vim_path . '/_temp'
-
-
-"set backupdir^=~/.vim/_backup//    " where to put backup files.
-"set directory^=~/.vim/_temp//      " where to put swap files.
+exe 'set undodir^=' . g:janus_vim_path . '/tmp'
