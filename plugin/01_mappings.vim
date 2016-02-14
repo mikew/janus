@@ -71,7 +71,7 @@ if has("gui_macvim") && has("gui_running")
 
   " Bubble single lines
   "call janus#add_delayed_command('nmap <D-Up> [e')
-  call janus#add_delayed_command('nmap <D-Down> ]e')
+  "call janus#add_delayed_command('nmap <D-Down> ]e')
   call janus#add_delayed_command('nmap <D-k> [e')
   call janus#add_delayed_command('nmap <D-j> ]e')
 

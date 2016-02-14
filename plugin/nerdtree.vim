@@ -14,7 +14,6 @@ autocmd VimEnter * call s:NERDTreeTabsOpen(expand("<amatch>"))
 autocmd FocusGained * call s:UpdateNERDTree()
 
 function s:NERDTreeTabsOpen(directory)
-  echom 's:NERDTreeTabsOpen'
   let l:main_bufnr = bufnr('%')
 
   "if isdirectory(a:directory)
