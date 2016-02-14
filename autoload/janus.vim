@@ -9,3 +9,9 @@ function! janus#commit_delayed_commands()
     execute cmd
   endfor
 endfunction
+
+function! janus#source_files_in(directory)
+  for rcfile in split(globpath(a:directory, '*.vim'), '\n')
+    execute 'source ' . rcfile
+  endfor
+endfunction

@@ -11,6 +11,10 @@ else
   let g:janus_vim_path = escape(fnamemodify(resolve(expand("<sfile>:p" . "vim")), ":h"), ' ')
 endif
 
+" Manually source all files in before/, if we rely on plugin/ they are sourced
+" after vim-plug despite appearing first in the rtp
+call janus#source_files_in(g:janus_vim_path . '/before')
+
 ""
 "" Customisations
 ""
@@ -28,8 +32,8 @@ endif
 ""
 
 call plug#begin(g:janus_vim_path . '/plugged')
-  exe 'source ' . g:janus_vim_path . '/tools.vim'
-  exe 'source ' . g:janus_vim_path . '/langs.vim'
+  execute 'source ' . g:janus_vim_path . '/tools.vim'
+  execute 'source ' . g:janus_vim_path . '/langs.vim'
 
   " Load the user's plugins
   if filereadable(expand("~/.vimrc.plugins"))
