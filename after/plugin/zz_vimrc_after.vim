@@ -14,3 +14,9 @@ endif
 if !janus#has_gui_running()
   call janus#commit_delayed_commands()
 endif
+
+if exists("neovim_dot_app")
+  if filereadable(expand("~/.gvimrc"))
+    source ~/.gvimrc
+  endif
+endif
