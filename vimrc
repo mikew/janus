@@ -8,8 +8,6 @@ endif
 
 let g:janus_loaded_vimrc = 1
 
-echom 'loading janus vimrc'
-
 ""
 "" Janus setup
 ""
