@@ -51,4 +51,10 @@ call plug#begin(g:janus_vim_path . '/plugged')
   "Plug g:janus_vim_path . '/after', { 'as': 'janus-after' }
 call plug#end()
 
+if exists("neovim_dot_app")
+  if filereadable(expand("~/.gvimrc"))
+    source ~/.gvimrc
+  endif
+endif
+
 " .vimrc.after is loaded after the plugins have loaded
