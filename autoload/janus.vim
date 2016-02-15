@@ -1,7 +1,7 @@
 let s:delayed_commands = []
 
 function! janus#add_delayed_command(cmd)
-  call add(s:delayed_commands, a:cmd)
+  call add(s:delayed_commands, janus#replace_mac_super(a:cmd))
 endfunction
 
 function! janus#replace_mac_super(cmd)
