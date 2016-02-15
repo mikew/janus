@@ -1,3 +1,15 @@
+if !exists('g:janus_loaded_vimrc')
+  let g:janus_loaded_vimrc = 0
+endif
+
+if g:janus_loaded_vimrc
+  finish
+endif
+
+let g:janus_loaded_vimrc = 1
+
+echom 'loading janus vimrc'
+
 ""
 "" Janus setup
 ""
