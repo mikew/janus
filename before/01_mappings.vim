@@ -54,7 +54,7 @@ call janus#add_delayed_command('nmap <leader>hs :set hlsearch! hlsearch?<CR>')
 " Adjust viewports to the same size
 call janus#add_delayed_command('map <Leader>= <C-w>=')
 
-if has("gui_macvim") && has("gui_running")
+if janus#has_gui_mac()
   " Map command-[ and command-] to indenting or outdenting
   " while keeping the original selection in visual mode
   call janus#add_delayed_command('vmap <D-]> >gv')

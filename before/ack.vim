@@ -4,7 +4,7 @@ elseif executable("ack-grep")
   let g:ackprg = "ack-grep -H --nocolor --nogroup --column"
 endif
 
-if has("gui_macvim") && has("gui_running")
+if janus#has_gui_mac()
   " Command-Shift-F on OSX
   call janus#add_delayed_command('map <D-F> :Ack<space>')
 else

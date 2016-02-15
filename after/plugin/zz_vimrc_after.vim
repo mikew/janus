@@ -11,6 +11,6 @@ endif
   "source ~/.gvimrc.after
 "endif
 
-if !has("gui_running")
+if !janus#has_gui_running()
   call janus#commit_delayed_commands()
 endif

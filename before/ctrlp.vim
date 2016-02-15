@@ -4,7 +4,7 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\.pyc$\|\.pyo$\|\.rbc$|\.rbo$\|\.class$\|\.o$\|\~$\',
   \ }
 
-if has("gui_macvim") && has("gui_running")
   let g:ctrlp_map = '<D-t>'
+if janus#has_gui_mac()
   call janus#add_delayed_command('imap ' . g:ctrlp_map . ' <ESC>:CtrlP<CR>')
 endif

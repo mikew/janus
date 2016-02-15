@@ -31,7 +31,7 @@ if filereadable(expand("~/.vimrc.before"))
   source ~/.vimrc.before
 endif
 
-if has("gui_running") && filereadable(expand("~/.gvimrc.before"))
+if janus#has_gui_running() && filereadable(expand("~/.gvimrc.before"))
   source ~/.gvimrc.before
 endif
 
