@@ -22,8 +22,8 @@ mkdir "${HOME}/.config"
 ln -s "${HOME}/.vim" "${HOME}/.config/nvim"
 
 # Create vimrc files
-echo "source ~/.vim/vim/vimrc" >> ~/.vimrc
-echo "source ~/.vim/vim/gvimrc" >> ~/.gvimrc
+echo "source ~/.vim/vimrc" >> ~/.vimrc
+echo "source ~/.vim/gvimrc" >> ~/.gvimrc
 
 vim="vim"
 if which mvim; then
