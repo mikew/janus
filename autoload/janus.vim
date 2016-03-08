@@ -59,20 +59,11 @@ function janus#FocusGained(...)
   endif
 endfunction
 
-let s:has_gui_running = 0
-let s:has_gui_mac = 0
-
-function! janus#setup_helpers(state)
-  let s:has_gui_running = get(a:state, 'has_gui_running', 0)
-  let s:has_gui_mac = get(a:state, 'has_gui_mac', 0)
-  let g:c = get(a:state, 'c', 'D')
-endfunction
-
 function! janus#has_gui_running()
-  return s:has_gui_running
+  return $VIM_FORCE_GVIM || has("gui_running") || exists("g:neovim_dot_app")
 endfunction
 
 function! janus#has_gui_mac()
-  return s:has_gui_mac
+  return janus#has_gui_running() && has('macunix')
 endfunction
 

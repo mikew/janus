@@ -21,14 +21,6 @@ else
   let g:janus_vim_path = escape(fnamemodify(resolve(expand("<sfile>:p" . "vim")), ":h"), ' ')
 endif
 
-" It seems `exists('neovim_dot_app')` is 1 here, but 0 when checked in
-" autoload/, so we have to pass some info along.
-call janus#setup_helpers({
-      \ 'has_gui_running': has("gui_running") || exists("neovim_dot_app"),
-      \ 'has_gui_mac': (has('gui_running') && has('gui_macvim')) || exists('neovim_dot_app'),
-      \ 'c': exists('neovim_dot_app') ? 'T' : 'D',
-      \ })
-
 " Manually source all files in before/, if we rely on plugin/ they are sourced
 " after vim-plug despite appearing first in the rtp
 call janus#source_files_in(g:janus_vim_path . '/before')
