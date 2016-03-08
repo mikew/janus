@@ -62,3 +62,22 @@ function! janus#has_gui_mac()
   return janus#has_gui_running() && has('macunix')
 endfunction
 
+function! janus#Guifont(name, size)
+  let fontstr_mac = printf('%s:h%s', a:name, a:size)
+  let fontstr_unix = printf('%s %s', a:name, a:size)
+
+  if exists('*rpcnotify')
+    " Support neovim-qt
+    call rpcnotify(0, 'Gui', 'SetFont', fontstr_mac)
+    let g:Guifont = fontstr_mac
+
+    " Support Neovim.app
+    call rpcnotify(1, 'neovim.app.setfont', a:name, a:size)
+  endif
+
+  if janus#has_gui_mac()
+    let &guifont = fontstr_mac
+  else
+    let &guifont = fontstr_unix
+  endif
+endfunction
