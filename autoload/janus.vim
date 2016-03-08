@@ -62,6 +62,16 @@ function! janus#has_gui_mac()
   return janus#has_gui_running() && has('macunix')
 endfunction
 
+function! janus#OutputToTab(...)
+  tabnew
+  redir @a
+  exec 'silent ' . join(a:000, ' ')
+  redir END
+  normal "apdd
+endfunction
+
+command! -nargs=+ -complete=command OutputToTab call janus#OutputToTab(<f-args>)
+
 function! janus#Guifont(name, size)
   let fontstr_mac = printf('%s:h%s', a:name, a:size)
   let fontstr_unix = printf('%s %s', a:name, a:size)
