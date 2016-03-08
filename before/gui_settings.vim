@@ -1,5 +1,5 @@
 if janus#has_gui_running()
-  if has("autocmd")
+  if has('autocmd')
     " Automatically resize splits when resizing MacVim window
     autocmd VimResized * wincmd =
   endif

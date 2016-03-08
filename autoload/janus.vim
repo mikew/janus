@@ -20,10 +20,10 @@ function! janus#VimEnter(directory)
   let l:main_bufnr = bufnr('%')
 
   "if isdirectory(a:directory)
-    exe "cd " . fnameescape(expand('%:p:h'))
+    exe 'cd ' . fnameescape(expand('%:p:h'))
   "endif
 
-  if isdirectory(a:directory) || a:directory =~ "NERD_tree_[0-9]\\+"
+  if isdirectory(a:directory) || a:directory =~ 'NERD_tree_[0-9]\\+'
     bd
   endif
 
@@ -32,21 +32,21 @@ function! janus#VimEnter(directory)
   catch
     NERDTree
   endtry
-  exe bufwinnr(l:main_bufnr) . "wincmd w"
+  exe bufwinnr(l:main_bufnr) . 'wincmd w'
 endfunction
 
 function! janus#FocusGained(...)
   let stay = 0
 
-  if(exists("a:1"))
+  if(exists('a:1'))
     let stay = a:1
   end
 
-  if exists("t:NERDTreeBufName")
+  if exists('t:NERDTreeBufName')
     let nr = bufwinnr(t:NERDTreeBufName)
     if nr != -1
-      exe nr . "wincmd w"
-      exe substitute(mapcheck("R"), "<CR>", "", "")
+      exe nr . 'wincmd w'
+      exe substitute(mapcheck('R'), '<CR>', '', '')
       if !stay
         wincmd p
       end
@@ -55,7 +55,7 @@ function! janus#FocusGained(...)
 endfunction
 
 function! janus#has_gui_running()
-  return $VIM_FORCE_GVIM || has("gui_running") || exists("g:neovim_dot_app")
+  return $VIM_FORCE_GVIM || has('gui_running') || exists('g:neovim_dot_app')
 endfunction
 
 function! janus#has_gui_mac()

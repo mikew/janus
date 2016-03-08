@@ -3,7 +3,7 @@
 " This loads after the janus plugins so that janus-specific plugin mappings can
 " be overwritten.
 
-if filereadable(expand("~/.vimrc.after"))
+if filereadable(expand('~/.vimrc.after'))
   source ~/.vimrc.after
 endif
 
@@ -16,7 +16,7 @@ if !janus#has_gui_running()
 endif
 
 if $VIM_FORCE_GVIM
-  if filereadable(expand("~/.gvimrc"))
+  if filereadable(expand('~/.gvimrc'))
     source ~/.gvimrc
   endif
 endif

@@ -6,7 +6,7 @@ let g:nerdtree_tabs_open_on_gui_startup = 0
 let g:nerdtree_tabs_open_on_console_startup = 0
 
 " Default mapping, <leader>n
-if maparg("<leader>n") !~ 'NERDTree'
+if maparg('<leader>n') !~ 'NERDTree'
   call janus#add_delayed_command('map <leader>n :NERDTreeTabsToggle<CR>')
 endif
 

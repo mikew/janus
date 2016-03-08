@@ -161,4 +161,4 @@ endif
 ""
 
 " After whitespace, insert the current directory into a command-line path
-cnoremap <expr> <C-P> getcmdline()[getcmdpos()-2] ==# ' ' ? expand('%:p:h') : "\<C-P>"
+cnoremap <expr> <C-P> getcmdline()[getcmdpos()-2] ==# ' ' ? expand('%:p:h') : '\<C-P>'
