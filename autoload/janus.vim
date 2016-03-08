@@ -35,7 +35,7 @@ function! janus#VimEnter(directory)
   exe bufwinnr(l:main_bufnr) . "wincmd w"
 endfunction
 
-function janus#FocusGained(...)
+function! janus#FocusGained(...)
   let stay = 0
 
   if(exists("a:1"))
