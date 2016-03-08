@@ -5,6 +5,6 @@ let g:ctrlp_custom_ignore = {
   \ }
 
 if janus#has_gui_mac()
-  let g:ctrlp_map = janus#replace_mac_super('<D-t>')
+  let g:ctrlp_map = '<D-t>'
   call janus#add_delayed_command('imap ' . g:ctrlp_map . ' <ESC>:CtrlP<CR>')
 endif
