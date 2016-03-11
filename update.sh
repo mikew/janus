@@ -11,4 +11,4 @@ elif which nvim; then
   vim="nvim"
 fi
 
-"${vim}" +PlugUpdate +PlugClean! +PlugUpgrade
+"${vim}" +'PlugUpdate | PlugClean! | PlugUpgrade'
