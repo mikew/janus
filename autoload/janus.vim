@@ -99,7 +99,7 @@ function! janus#disable_plugin(...)
 endfunction
 
 function! janus#is_plugin_disabled(name)
-  return index(g:plugs_disabled, name) > 0
+  return index(g:plugs_disabled, a:name) > 0
 endfunction
 
 function! janus#is_plugin_enabled(name)
