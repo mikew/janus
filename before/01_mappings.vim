@@ -55,6 +55,16 @@ call janus#add_delayed_command('nmap <leader>hs :set hlsearch! hlsearch?<CR>')
 call janus#add_delayed_command('map <Leader>= <C-w>=')
 
 if janus#has_gui_mac()
+  call janus#add_delayed_command('map <D-Up> gg')
+  call janus#add_delayed_command('imap <D-Up> <Esc>ggi')
+  call janus#add_delayed_command('map <D-Down> G')
+  call janus#add_delayed_command('imap <D-Down> <Esc>Gi')
+
+  call janus#add_delayed_command('map <D-Left> ^')
+  call janus#add_delayed_command('imap <D-Left> <Esc>I')
+  call janus#add_delayed_command('map <D-Right> $')
+  call janus#add_delayed_command('imap <D-Right> <Esc>A')
+
   " Map command-[ and command-] to indenting or outdenting
   " while keeping the original selection in visual mode
   call janus#add_delayed_command('vmap <D-]> >gv')
