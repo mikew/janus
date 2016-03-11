@@ -91,3 +91,31 @@ function! janus#Guifont(name, size)
     let &guifont = fontstr_unix
   endif
 endfunction
+
+function! janus#disable_plugin(...)
+  for name in a:000
+    call add(g:plugs_disabled, name)
+  endfor
+endfunction
+
+function! janus#is_plugin_disabled(name)
+  return index(g:plugs_disabled, name) > 0
+endfunction
+
+function! janus#is_plugin_enabled(name)
+  return !janus#is_plugin_disabled(a:name)
+endfunction
+
+let g:plugs_disabled = []
+function! janus#commit_disabled_plugins()
+  for name in g:plugs_disabled
+    if has_key(g:plugs, name)
+      call remove(g:plugs, name)
+    endif
+
+    let idx = index(g:plugs_order, name)
+    if idx > -1
+      call remove(g:plugs_order, idx)
+    endif
+  endfor
+endfunction

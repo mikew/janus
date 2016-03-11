@@ -51,6 +51,7 @@ call plug#begin(g:janus_vim_path . '/plugged')
   endif
 
   "Plug g:janus_vim_path . '/after', { 'as': 'janus-after' }
+call janus#commit_disabled_plugins()
 call plug#end()
 
 
