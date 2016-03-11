@@ -1,3 +1,7 @@
+if janus#is_plugin_disabled('ack.vim')
+  finish
+endif
+
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 elseif executable('ack-grep')

@@ -1,3 +1,7 @@
+if janus#is_plugin_disabled('gist-vim')
+  finish
+endif
+
 if executable('pbcopy')
   " The copy command
   let g:gist_clip_command = 'pbcopy'

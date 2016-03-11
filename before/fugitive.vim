@@ -1,3 +1,7 @@
+if janus#is_plugin_disabled('vim-fugitive')
+  finish
+endif
+
 " Janus mappings
 call janus#add_delayed_command('nmap <leader>gb :Gblame<CR>')
 call janus#add_delayed_command('nmap <leader>gs :Gstatus<CR>')

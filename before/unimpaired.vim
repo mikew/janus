@@ -1,3 +1,7 @@
+if janus#is_plugin_disabled('vim-unimpaired')
+  finish
+endif
+
 " Normal Mode: Bubble single lines
 call janus#add_delayed_command('nmap <C-Up> [e')
 call janus#add_delayed_command('nmap <C-Down> ]e')

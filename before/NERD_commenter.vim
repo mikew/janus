@@ -1,3 +1,7 @@
+if janus#is_plugin_disabled('nerdcommenter')
+  finish
+endif
+
 " NERDCommenter mappings
 call janus#add_delayed_command('map <D-/> <plug>NERDCommenterToggle<CR>')
 call janus#add_delayed_command('imap <D-/> <Esc><plug>NERDCommenterToggle<CR>i')

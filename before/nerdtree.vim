@@ -1,3 +1,7 @@
+if janus#is_plugin_disabled('nerdtree')
+  finish
+endif
+
 let NERDTreeHijackNetrw = 0
 let NERDTreeIgnore=['\.pyc$', '\.pyo$', '\.rbc$', '\.rbo$', '\.class$', '\.o$', '\~$', '\.git$']
 let g:nerdtree_tabs_startup_cd = 0
