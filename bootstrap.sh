@@ -30,6 +30,8 @@ if which mvim; then
   vim="mvim"
 elif which nvim; then
   vim="nvim"
+elif which gvim; then
+  vim="gvim"
 fi
 
 echo "You may need to restart ${vim} to complete Janus installation." | "${vim}" -R +PlugInstall -
